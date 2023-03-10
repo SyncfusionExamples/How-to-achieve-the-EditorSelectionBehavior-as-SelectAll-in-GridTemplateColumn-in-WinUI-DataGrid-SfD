@@ -1,4 +1,4 @@
-# How-to-achieve-the-EditorSelectionBehavior-as-SelectAll-in-GridTemplateColumn-in-WinUI-DataGrid-SfD
+# How to achieve the EditorSelectionBehavior as SelectAll in GridTemplateColumn in WinUI DataGrid (SfDataGrid)?
 
 The [EditorSelectionBehavior](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Grids.SfGridBase.html#Syncfusion_UI_Xaml_Grids_SfGridBase_EditorSelectionBehavior) as [SelectAll](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Grids.EditorSelectionBehavior.html#Syncfusion_UI_Xaml_Grids_EditorSelectionBehavior_SelectAll) will not work when the [GridTemplateColumn](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.DataGrid.GridTemplateColumn.html) is in edit mode in [WinUI DataGrid](https://www.syncfusion.com/winui-controls/datagrid) (SfDataGrid). Because the element loaded inside the edit template cannot be predicted. You can achieve this by programmatically selecting all the text whenever the edit element got focused.
 
