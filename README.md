@@ -6,8 +6,6 @@ In the following sample, **TextBox** has been loaded as an edit element of **Gri
 
 Refer to the following code snippet to achieve the **EditorSelectionBehavior** as **SelectAll** in **GridTemplateColumn**.
 
-**XAML**
-
 ```XML
 <Syncfusion:SfDataGrid x:Name="dataGrid"  
                        ItemsSource="{Binding Orders,Mode=TwoWay}"
@@ -17,7 +15,8 @@ Refer to the following code snippet to achieve the **EditorSelectionBehavior** a
                        AutoGenerateColumns="False"
                        AllowEditing="True">
     <Syncfusion:SfDataGrid.Columns>
-        <Syncfusion:GridNumericColumn  MappingName="OrderID"    HeaderText="Order ID"     />
+        <Syncfusion:GridNumericColumn MappingName="OrderID"    
+                                      HeaderText="Order ID"     />
         <Syncfusion:GridTemplateColumn MappingName="CustomerID">
             <Syncfusion:GridTemplateColumn.CellTemplate>
                 <DataTemplate>
@@ -26,13 +25,17 @@ Refer to the following code snippet to achieve the **EditorSelectionBehavior** a
             </Syncfusion:GridTemplateColumn.CellTemplate>
             <Syncfusion:GridTemplateColumn.EditTemplate>
                 <DataTemplate>
-                    <local:CustomTextBox AutoSelectable="True"  Text="{Binding CustomerID, Mode=TwoWay}"  />
+                    <local:CustomTextBox AutoSelectable="True"  
+                                         Text="{Binding CustomerID, Mode=TwoWay}"  />
                 </DataTemplate>
             </Syncfusion:GridTemplateColumn.EditTemplate>
         </Syncfusion:GridTemplateColumn>
-        <Syncfusion:GridTextColumn     MappingName="ShipCity"   HeaderText="Ship City"    />
-        <Syncfusion:GridNumericColumn  MappingName="UnitPrice"  HeaderText="Unit Price"   />
-        <Syncfusion:GridCheckBoxColumn MappingName="Review"     HeaderText="Review"  />
+        <Syncfusion:GridTextColumn MappingName="ShipCity"  
+                                   HeaderText="Ship City"    />
+        <Syncfusion:GridNumericColumn MappingName="UnitPrice"  
+                                      HeaderText="Unit Price"   />
+        <Syncfusion:GridCheckBoxColumn MappingName="Review"    
+                                       HeaderText="Review"  />
     </Syncfusion:SfDataGrid.Columns>
 </Syncfusion:SfDataGrid>
 
@@ -46,22 +49,21 @@ public class CustomTextBox : TextBox
 {
     public CustomTextBox() : base()
     {
-
     }
-
+ 
     public static bool GetAutoSelectable(DependencyObject obj)
     {
         return (bool)obj.GetValue(AutoSelectableProperty);
     }
-
+ 
     public static void SetAutoSelectable(DependencyObject obj, bool value)
     {
         obj.SetValue(AutoSelectableProperty, value);
     }
-
+ 
     public static readonly DependencyProperty AutoSelectableProperty =
     DependencyProperty.RegisterAttached("AutoSelectable", typeof(bool), typeof(CustomTextBox), new PropertyMetadata(false, AutoFocusableChangedHandler));
-
+ 
     private static void AutoFocusableChangedHandler(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (e.NewValue != e.OldValue)
@@ -79,12 +81,10 @@ public class CustomTextBox : TextBox
 
     private static void OnGotFocusHandler(object sender, RoutedEventArgs e)
     {
-        (sender as TextBox).SelectAll();
+       (sender as TextBox).SelectAll();
     }
-
 }
 
 ```
-
 Take a moment to peruse the [WinUI DataGrid - Column Types](https://help.syncfusion.com/winui/datagrid/column-types) documentation, to learn more about column types with code examples.
 
